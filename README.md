@@ -1,6 +1,11 @@
 Hello Everyone Cooking Blog Is a Responsive Website Using CRUD Operations you can add recipes. Features
 like image of Recipe,Ingredients,description of Recipe, Category,email,source and catalogue through different Cuisine Inside All cuisine you can view all Recipes.
-Tech Stack Used Here is : HTML,CSS,Bootstrap,Javascript,Nodejs,ExpressJs,EJS and PostgreSQL
+
+Tech Stack Used Here are 
+Frontend: HTML, CSS, Bootstrap, Javascript. 
+Backend : Nodejs, ExpressJs, EJS. 
+DataBase : PostgreSQL.
+
 Instruction to Run the Program
 1) use git bash or windows powershell for installing files
 2) create index.js file inside this file we will run the entire program
