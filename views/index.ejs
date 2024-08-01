@@ -1,0 +1,137 @@
+<%- include("partials/header.ejs") %>
+<section id="heroes">
+    <div class="container col-xxl-8 py-3 px-4 bg-white">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="\images\hero-image.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Huge selection of delicios recipe ideas</h1>
+          <p class="lead">Explore our huge selection of delicious recipe ideas including; easy desserts, delicious vegan and vegetarian dinner ideas, gorgeous pasta recipes, quick bakes, family-friendly meals and gluten-free recipes.</p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+           <a href="/explore-latest"><button type="button" class="btn btn-outline-dark btn-lg px-4 me-md-2">Explore Latest</button></a>
+        </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+<section class="cards">
+  <div class="row row-cols-2 row-cols-lg-6 mx-5">
+    <% if (items !== '') { %>
+    <% items.forEach(element => { %>
+    <div class="col food py-3">
+      <a href="/categories/<%= element.name %>" class="food-card"><div class="card">
+        <img src="\images\<%= element.image%>" class="card-img-top img-size" alt="<%= element.name %>">
+        <div class="card-body">
+          <h5 class="card-title text-center design"><%= element.name%></h5>
+        </div>
+      </div></a>
+    </div>
+    <% }) %>
+    <% } %>
+    <div class="col food py-3">
+      <a href="/categories" class="food-card"><div class="card">
+       <img src="\images\view-all.jpg" class="card-img-top img-size" alt="View ALL">
+        <div class="card-body">
+          <h5 class="card-title text-center design">View All</h5>
+        </div>
+      </div></a>
+    </div>
+  </div>
+</section>
+
+<section id="Cards-2">
+ 
+  <div class="px-2 py-5 d-flex flex-wrap justify-content-md-center">
+  <h2 class="me-auto mx-5 fs-2">Latest Recipes</h2>
+  <a href="/explore-latest" class="ms-auto mx-5 mt-2 remove"><h5>View More</h5></a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 mx-5">  
+  <% if (newitems !== '') { %>
+  <% newitems.forEach(element => { %>  
+  <div class="col food py-3">
+      <a href="/recipe/<%= element.id %>" class="food-card"><div class="card">
+        <img src="\images\<%= element.image %>" class="card-img-top"  alt="<%= element.name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= element.name %></h5>
+        </div>
+      </div></a>
+    </div>
+    <% }) %>
+    <% } %>  
+    </div>
+</section>
+
+<section id="All Thai Recipes">
+ 
+  <div class="px-2 py-5 d-flex flex-wrap justify-content-md-center">
+  <h2 class="me-auto mx-5 fs-2">Thai Recipes</h2>
+  <a href="/categories/Thai" class="ms-auto mx-5 mt-2 remove"><h5>View More</h5></a>
+  </div>
+
+<div class="row row-cols-2 row-cols-lg-5 mx-5">  
+  <% allitem.forEach(element => { %>  
+    <% if (element.category === 'Thai') { %>
+    <div class="col food py-3">
+      <a href="/recipe/<%= element.id %>" class="food-card"><div class="card">
+        <img src="\images\<%= element.image %>" class="card-img-top" alt="<%= element.name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= element.name %></h5>
+        </div>
+      </div></a>
+    </div>
+    <% } %>
+    <% }) %>  
+    </div>
+</section>
+
+<section id="All American Recipes">
+ 
+  <div class="px-2 py-5 d-flex flex-wrap justify-content-md-center">
+  <h2 class="me-auto mx-5 fs-2">American Recipes</h2>
+  <a href="/categories/American" class="ms-auto mx-5 mt-2 remove"><h5>View More</h5></a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 mx-5">  
+  <% allitem.forEach(element => { %>  
+    <% if (element.category === 'American') { %>
+    <div class="col food py-3">
+      <a href="/recipe/<%= element.id %>" class="food-card"><div class="card">
+        <img src="\images\<%= element.image %>" class="card-img-top" alt="<%= element.name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= element.name %></h5>
+        </div>
+      </div></a>
+    </div>
+    <% } %>
+    <% }) %>  
+    </div>
+</section>
+
+<section id="All Chinese Recipes">
+ 
+  <div class="px-2 py-5 d-flex flex-wrap justify-content-md-center">
+  <h2 class="me-auto mx-5 fs-2">Chinese Recipes</h2>
+  <a href="/categories/Chinese" class="ms-auto mx-5 mt-2 remove"><h5>View More</h5></a>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 mx-5">  
+  <% allitem.forEach(element => { %>  
+    <% if (element.category === 'Chinese') { %>
+    <div class="col food py-3">
+      <a href="/recipe/<%= element.id %>" class="food-card"><div class="card">
+        <img src="\images\<%= element.image %>" class="card-img-top" alt="<%= element.name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= element.name %></h5>
+        </div>
+      </div></a>
+    </div>
+    <% } %>
+    <% }) %>  
+    </div>
+</section>
+
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,20 @@
+<%-include("partials/header.ejs")%>
+<section class="cards">
+    <h1 class="mx-5 px-5 py-3">Explore Latest</h1>
+    <div class="row row-cols-2 row-cols-lg-5 mx-5">
+      <% if (item !== '') { %>
+      <% item.forEach(element => { %>
+      <div class="col food py-2">
+        <a href="/categories/<%= element.category %>/<%= element.id %>" class="food-card"><div class="card">
+          <img src="\images\<%= element.image%>" class="card-img-top" alt="<%= element.name %>">
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= element.name%></h5>
+          </div>
+        </div></a>
+      </div>
+      <% }) %>
+      <% } %>
+    </div>
+</section>
+</body>
+</html>

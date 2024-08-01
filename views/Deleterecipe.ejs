@@ -1,0 +1,9 @@
+<%- include("partials/header.ejs") %>
+<div class="px-4 py-4 text-center">
+<h1 class="display-5 fs-1 fw-bold mt-4">Are You Sure You want to Delete this Recipe</h1>
+</div>
+<form action="/delete" method="POST">
+    <div class="col-md-10 mt-4 mb-5 d-flex justify-content-md-center pro mx-5">
+        <button type="submit" class="btn btn-lg btn-outline-primary">Delete Recipe</button>
+      </div>
+</form>

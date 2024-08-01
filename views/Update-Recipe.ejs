@@ -1,0 +1,74 @@
+<%-include("partials/header.ejs")  %>
+<% if (Item !== '') { %>
+    <% Item.forEach(element => { %> 
+<div class="px-4 py-5 text-center">
+    <h1 class="display-5 fw-bold">Update Your Recipe</h1>
+  </div>
+  <div class="row d-flex flex-wrap justify-content-md-center mx-5 px-5">
+    <div class="col-md-10">
+        <form action="/edit" enctype="multipart/form-data" method="POST">
+            <!-- enctype = multipart/form-data , here it is used specially for image to be taken from folder -->
+          <div class="row mx-3">
+            
+            <div class="col-md-10 mt-4">
+              <label for="name" class="form-label">Recipe Name</label>
+              <input type="text" name="name" id="name" class="form-control" value="<%- element.name %>" required>
+            </div>
+            
+            <div class="col-md-10 mt-4">
+              <label for="description" class="form-label">Description</label>
+              <textarea name="description" id="description" placeholder="" class="form-control" cols="30" rows="4"><%- element.description %></textarea>
+            </div>
+    
+            <div class="col-md-10 mt-4">
+              <label for="name" class="form-label">Ingredients</label><br>
+              <small class="">Example: Ice</small>
+              <div class="ingredientList">
+                <div class="ingredientDiv mb-1">
+                  <input type="text" name="ingredients" value="<%- element.ingredients %>" id="ingredients" class="form-control">
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-10 mt-4">
+              <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
+            </div>
+    
+            <div class="col-md-10 mt-4">
+              <label for="category" class="">Select Category</label>
+              <select class="form-select form-control" name="category" id="category" value="" aria-label="Category">
+                <option selected><%- element.category %></option>
+                <option value="Thai">Thai</option>
+                <option value="American">American</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Indian">Indian</option>
+                <option value="Spanish">Spanish</option>
+              </select>
+            </div>
+    
+            <div class="col-md-10 mt-4 mb-4 d-flex justify-content-md-center pro">
+              <button type="submit" class="btn btn-primary">Submit Recipe</button>
+            </div>
+    
+          </div>
+        </form>
+      </div>
+    </div>
+    <% }) %> 
+    <% } %>
+<script type="text/javascript">
+      /*Ingredients Section Add or Delete Ingredients in submit-recipe.ejs*/
+    let add_ingredients_btn = document.getElementById('addIngredientsBtn');  // <button type="button" id="addIngredientsBtn">+ Ingredient</button>
+    let ingredient_list = document.querySelector('.ingredientList'); //<div class="ingredientList">
+    let ingredient_div = document.querySelectorAll('.ingredientDiv')[0]; //<div class="ingredientDiv">
+      
+      add_ingredients_btn.addEventListener('click',function(){
+        let new_ingredient = ingredient_div.cloneNode(true); // it copies the exact node with same attribute of ingredientDiv. 
+        let input = new_ingredient.getElementsByTagName('input')[0];     
+        input.value = ''; 
+        ingredient_list.appendChild(new_ingredient);
+      });
+</script>
+</body>
+</html>

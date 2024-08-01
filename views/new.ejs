@@ -1,0 +1,35 @@
+<!-- All Category -->
+<%- include("partials/header.ejs") %>
+<% if (Item !== '') { %>
+<div class="px-2 py-5 d-flex flex-wrap justify-content-md-center">
+<h1 class="me-auto mx-5 px-1">Explore Categories</h1>
+</div>
+<div class="mx-5 px-3 pb-4 d-flex flex-wrap">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/categories">Categories</li></a>
+    <li class="breadcrumb-item active" aria-current="page"><%-Category%></li>
+  </ol>
+</nav>
+</div>
+
+<section class="cards-2">
+    <div class="row row-cols-2 row-cols-lg-5 mx-5">
+      <% Item.forEach(element => { %>
+      <div class="col food">
+        <a href="/categories/<%-Category%>/<%= element.id %>" class="food-card"><div class="card">
+          <img src="\images\<%= element.image%>" class="card-img-top" alt="<%= element.name %>">
+          <div class="card-body">
+            <h5 class="card-title text-center"><%= element.name%></h5>
+          </div>
+        </div></a>
+      </div>
+      <% }) %>
+    </div>
+</section>
+<% }  else { %>
+    <h1>No Recipe Found</h1>
+    <% } %>
+</body>
+</html>

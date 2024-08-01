@@ -1,0 +1,98 @@
+<%-include("partials/header.ejs")  %>
+<div class="mx-5 px-5 py-4 d-flex flex-wrap">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Submit-Recipe</li>
+          </ol>
+        </nav>
+</div>
+    
+<div class="px-4 py-5 text-center">
+    <h1 class="display-5 fw-bold">Submit Your Recipe</h1>
+    <div class="col-md-6 mx-auto">
+      <p class="lead">Share your amazing recipies with thousands of web developers accross the world. Fill our form to get started.</p>
+    </div>
+  </div>
+  <div class="row d-flex flex-wrap justify-content-md-center mx-5 px-5">
+    <div class="col-md-10">
+        <form action="/submit-recipe" enctype="multipart/form-data" method="POST">
+            <!-- enctype = multipart/form-data , here it is used specially for image to be taken from folder -->
+          <div class="row mx-3">
+    
+            <div class="col-md-10 mt-4">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" name="email" id="email" class="form-control">
+            </div>
+            
+            <div class="col-md-10 mt-4">
+              <label for="source" class="form-label">Source</label>
+              <input type="url" name="source" id="url" class="form-control">
+            </div>
+
+            <div class="col-md-10 mt-4">
+              <label for="name" class="form-label">Recipe Name</label>
+              <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+            
+            <div class="col-md-10 mt-4">
+              <label for="description" class="form-label">Description</label>
+              <textarea name="description" id="description" class="form-control" cols="30" rows="4"></textarea>
+            </div>
+    
+            <div class="col-md-10 mt-4">
+              <label for="name" class="form-label">Ingredients</label><br>
+              <small>Example: Ice</small>
+              <div class="ingredientList">
+                <div class="ingredientDiv mb-1">
+                  <input type="text" name="ingredients" id="ingredients" class="form-control">
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-10 mt-4">
+              <button type="button" class="btn btn-outline-primary" id="addIngredientsBtn">+ Ingredient</button>
+            </div>
+    
+            <div class="col-md-10 mt-4">
+              <label for="category">Select Category</label>
+              <select class="form-select form-control" name="category" id="category" aria-label="Category">
+                <option selected>Select Category</option>
+                <option value="Thai">Thai</option>
+                <option value="American">American</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Indian">Indian</option>
+                <option value="Spanish">Spanish</option>
+              </select>
+            </div>
+    
+            <div class="col-md-10 mt-4">
+              <label for="image">Product Image</label>
+              <input type="file" class="form-control" name="image" id="image" accept="image/*">
+            </div>
+    
+            <div class="col-md-10 mt-4 mb-4 d-flex justify-content-md-center pro">
+              <button type="submit" class="btn btn-primary">Submit Recipe</button>
+            </div>
+    
+          </div>
+        </form>
+      </div>
+    </div>
+
+<script type="text/javascript">
+      /*Ingredients Section Add or Delete Ingredients in submit-recipe.ejs*/
+    let add_ingredients_btn = document.getElementById('addIngredientsBtn');  // <button type="button" id="addIngredientsBtn">+ Ingredient</button>
+    let ingredient_list = document.querySelector('.ingredientList'); //<div class="ingredientList">
+    let ingredient_div = document.querySelectorAll('.ingredientDiv')[0]; //<div class="ingredientDiv">
+      
+      add_ingredients_btn.addEventListener('click',function(){
+        let new_ingredient = ingredient_div.cloneNode(true); // it copies the exact node with same attribute of ingredientDiv. 
+        let input = new_ingredient.getElementsByTagName('input')[0];     
+        input.value = ''; 
+        ingredient_list.appendChild(new_ingredient);
+      });
+</script>
+</body>
+</html>

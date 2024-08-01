@@ -1,0 +1,54 @@
+/*body"*/
+body
+{ 
+    background-color: white;
+    cursor:auto;
+}
+/*Navbar Section */
+.nav-con{
+    background: white;
+    }
+    .nav-item .nav-link{
+        font-family: Averta PE,sans-serif;
+        font-weight: bolder;
+        color:black;
+        text-decoration: none;
+      }
+    
+      .navbar-nav .nav-link:hover{
+          color:blueviolet;
+      }
+/*Card Section */
+.food:hover{
+    box-shadow: 0px 3px  5px gray;
+    border-radius: 8px;
+}
+.food-card{
+    text-decoration: none;
+    color: black;
+}
+.img-size{
+    height:100px;
+}
+.design{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+/*Card -Section 2  */
+h5{
+    color:black;
+}
+.remove{
+    text-decoration: none;
+}
+/* <section id="sub-footer">  in about.ejs */
+.back-3{
+    background-color: #b9cde4;
+}
+  
+.design-4{
+    font-family:Averta PE,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #183b56;
+}
